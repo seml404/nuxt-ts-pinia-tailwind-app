@@ -1,24 +1,7 @@
 import { defineStore } from "pinia";
 import { status } from "~~/assets/utils";
 import { apiGetPhotos } from "~~/assets/api";
-
-// import { actions } from "./mainStore/actions";
-
-// console.log(actions);
-
-interface card {
-  id: number | string;
-  author: string;
-  authorContact: string;
-  smallPhotoUrl: string;
-  price: number | string;
-}
-
-interface cardAdded {
-  id: number | string;
-  price: number;
-  amount: number;
-}
+import { card, cardAdded } from "~~/assets/interfaces";
 
 export const mainStore = defineStore({
   id: "mainStore",
@@ -44,13 +27,7 @@ export const mainStore = defineStore({
           price: Math.trunc(Math.random() * 10000),
         },
       ],
-      cardsAdded: [
-        // {
-        //   id: 1234,
-        //   amount: 1,
-        //   price: Math.trunc(Math.random() * 10000),
-        // },
-      ],
+      cardsAdded: [],
     };
   },
   actions: {
@@ -62,7 +39,6 @@ export const mainStore = defineStore({
           const data = await apiGetPhotos();
           this.photosList = data.data;
           this.status.photosList = status.success;
-          // console.log(this.photosList);
         } catch (e) {
           this.status.photosList = status.error;
         }

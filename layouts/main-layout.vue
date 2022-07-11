@@ -15,7 +15,7 @@ console.log(totalCost);
     <div class="flex-grow">
       <slot></slot>
     </div>
-    <div class="sticky bottom-0 opacity-1 bg-indigo-500 w-full h-60px">
+    <div class="sticky bottom-0 opacity-1 bg-indigo-500 w-full h-60">
       <p>{{ totalCost }}</p>
     </div>
   </div>

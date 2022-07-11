@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { mainStore } from "@@/store/store";
 const store = mainStore();
 const props = defineProps({
@@ -29,7 +29,7 @@ const props = defineProps({
 
 <style lang="scss" scoped></style>
 
-<script>
+<script lang="ts">
 export default {
   name: "cardItem",
 };

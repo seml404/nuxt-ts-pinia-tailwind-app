@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { card } from "~~/assets/interfaces";
 import { computed, ComputedRef } from "vue";
 import "@@/assets/css/styles.css";
 import cardItem from "@@/components/card-item.vue";
@@ -6,7 +7,7 @@ import { mainStore } from "@@/store/store";
 const layout = "main-layout";
 const store = mainStore();
 store.getInitializationData();
-const cards = computed((): array => store.getCards);
+const cards = computed((): Array<card> => store.getCards);
 </script>
 
 <template>

@@ -1,6 +1,6 @@
 import axios from "axios";
 import qs from "qs";
-
+import { requestProps, requestParams } from "~~/assets/interfaces";
 axios.interceptors.response.use(
   (response) => {
     return response;
@@ -9,13 +9,6 @@ axios.interceptors.response.use(
     console.log(error);
   }
 );
-
-interface requestProps {
-  method: string;
-  url: string;
-}
-
-interface requestParams {}
 
 export const commonRequest = (props: requestProps) => {
   const { method, url } = props;
