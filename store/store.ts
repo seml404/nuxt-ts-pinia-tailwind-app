@@ -1,7 +1,8 @@
 import { defineStore } from "pinia";
+import { cardList } from "~~/assets/mockData/cardList";
 import { status } from "~~/assets/utils";
 import { apiGetPhotos } from "~~/assets/api";
-import { card, cardAdded } from "~~/assets/interfaces";
+import { cardEl, cardAddedEl } from "~~/assets/interfaces";
 
 export const mainStore = defineStore({
   id: "mainStore",
@@ -11,23 +12,9 @@ export const mainStore = defineStore({
         photosList: "default",
       },
       photosList: [],
-      cardsList: [
-        {
-          id: 1234,
-          author: "asdf",
-          authorContact: "asdf",
-          smallPhotoUrl: "",
-          price: Math.trunc(Math.random() * 10000),
-        },
-        {
-          id: 12344,
-          author: "asdf",
-          authorContact: "asdf",
-          smallPhotoUrl: "",
-          price: Math.trunc(Math.random() * 10000),
-        },
-      ],
+      cardsList: cardList,
       cardsAdded: [],
+      cardsListDisplayed: [],
     };
   },
   actions: {
@@ -67,7 +54,7 @@ export const mainStore = defineStore({
       // await this.getPhotos();
       await this.createMockCards();
     },
-    async addToCart(item: card) {
+    async addToCart(item) {
       this.cardsAdded.find((card) => card.id === item.id)
         ? this.cardsAdded.find((card) => card.id === item.id).amount++
         : this.cardsAdded.push({
@@ -77,7 +64,7 @@ export const mainStore = defineStore({
           });
     },
     async removeFromCart(item) {
-      let card = this.cardsAdded.find((el: cardAdded) => el.id === item.id);
+      let card = this.cardsAdded.find((el: cardAddedEl) => el.id === item.id);
       console.log(card);
       if (card) {
         card.amount > 1
@@ -87,24 +74,31 @@ export const mainStore = defineStore({
             ));
       }
     },
-    defineAmountInCart(item: card): number {
+    defineAmountInCart(item): number {
       if (this.cardsAdded.length) {
-        return this.cardsAdded.find((el: cardAdded) => el.id === item.id)
-          ? this.cardsAdded.find((el: cardAdded) => el.id === item.id).amount
+        return this.cardsAdded.find((el: cardAddedEl) => el.id === item.id)
+          ? this.cardsAdded.find((el: cardAddedEl) => el.id === item.id).amount
           : 0;
       } else {
         return 0;
       }
+    },
+    setCardsListDisplayed(cardsArr: Array<cardEl>): void {
+      console.log(cardsArr);
+      this.cardsListDisplayed = cardsArr;
     },
   },
   getters: {
     getCards() {
       return this.cardsList;
     },
+    getCardsListDisplayed() {
+      return this.cardsListDisplayed;
+    },
     getTotalCost() {
       if (this.cardsAdded.length) {
         let sum = 0;
-        this.cardsAdded.forEach((el: cardAdded) => {
+        this.cardsAdded.forEach((el: cardAddedEl) => {
           sum += el.price * el.amount;
         });
         return sum;

@@ -1,4 +1,4 @@
-export interface card {
+export interface cardEl {
   id: number | string;
   author: string;
   authorContact: string;
@@ -6,7 +6,7 @@ export interface card {
   price: number | string;
 }
 
-export interface cardAdded {
+export interface cardAddedEl {
   id: number | string;
   price: number;
   amount: number;
