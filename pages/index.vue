@@ -1,22 +1,22 @@
 <script setup lang="ts">
 import { cardEl } from "~~/assets/interfaces";
-import { computed, ComputedRef } from "vue";
+import { computed } from "vue";
 import "@@/assets/css/styles.css";
 import cardItem from "@@/components/card-item.vue";
 import { mainStore } from "@@/store/store";
+
 const layout = "main-layout";
 const store = mainStore();
-store.getInitializationData();
+
 const cardsDisplayed = computed(
   (): Array<cardEl> => store.getCardsListDisplayed
 );
 </script>
 
 <template>
-  <div>
+  <div class="d">
     <NuxtLayout :name="layout">
       <div>
-        <div>main</div>
         <div v-if="cardsDisplayed && cardsDisplayed.length">
           <cardItem
             v-for="card in cardsDisplayed"

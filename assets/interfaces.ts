@@ -1,8 +1,7 @@
 export interface cardEl {
   id: number | string;
-  author: string;
-  authorContact: string;
-  smallPhotoUrl: string;
+  urls: any | object;
+  user: any | object;
   price: number | string;
 }
 

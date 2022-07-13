@@ -7,14 +7,33 @@ const props = defineProps({
     type: Object,
   },
 });
+
+// navigate to separate tab for user details
+const router = useRouter();
+const switchToProfile = () => {
+  let routeData = router.resolve({
+    name: "profile",
+    query: { authorRequested: props.cardDetails.user?.username },
+  });
+  window.open(routeData.href, "_blank");
+};
 </script>
 
 <template>
-  <div class="">
-    <p>{{ cardDetails.author }}</p>
-    <p>@{{ cardDetails.authorContact }}</p>
+  <div>
+    <div class="flex justify-start p-10px">
+      <div class="mr-10px">
+        <p>user photo</p>
+      </div>
+      <div>
+        <p @click="switchToProfile">
+          {{ cardDetails.user?.name || "no data" }}
+        </p>
+        <p>@{{ cardDetails.user?.instagram_username || "no data" }}</p>
+      </div>
+    </div>
     <div class="">
-      <img :src="cardDetails.smallPhotoUrl" alt="img" class="w-full" />
+      <img :src="cardDetails.urls.small" alt="img" class="w-full" />
     </div>
     <div class="flex">
       <div>

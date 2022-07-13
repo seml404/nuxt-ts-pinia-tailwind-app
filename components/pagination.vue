@@ -9,8 +9,12 @@ const props = defineProps({
     type: Array<cardEl>,
   },
 });
-const pageNumber = ref(1);
-const itemsOnPage = 3;
+const paginationSettings = {
+  firstPage: 1,
+  itemsOnPage: 3,
+};
+const pageNumber = ref(paginationSettings.firstPage);
+const itemsOnPage = paginationSettings.itemsOnPage;
 const listOfPages: any = ref([]);
 const totalPages = computed(() => {
   return props.arrOfItems?.length ? props.arrOfItems.length / itemsOnPage : 0;
