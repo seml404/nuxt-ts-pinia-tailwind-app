@@ -6,6 +6,7 @@
 3. TypeScript
 4. Pinia
 5. TailwindCss
+6. Axios
 
 # IDE
 VsCode
@@ -13,9 +14,9 @@ VsCode
 # SETUP
 
 Install the dependencies:
-# yarn
+
 ```yarn install```
-# npm
+
 ```npm install```
 
 
