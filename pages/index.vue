@@ -16,20 +16,18 @@ const cardsDisplayed = computed(
 <template>
   <div>
     <NuxtLayout :name="layout">
-      <div class="ml-auto mr-auto w-auto max-w-440px lg:max-w-660px">
-        <div
-          v-if="cardsDisplayed && cardsDisplayed.length"
-          class="flex flex-col gap-8px lg:grid lg:grid-cols-2 lg:gap-x-20px"
-        >
-          <cardItem
-            v-for="card in cardsDisplayed"
-            :key="card.id"
-            :card-details="card"
-          ></cardItem>
-        </div>
-        <div v-else>
-          <p>карточки отсутствуют</p>
-        </div>
+      <div
+        v-if="cardsDisplayed && cardsDisplayed.length"
+        class="ml-auto mr-auto w-auto max-w-440px lg:max-w-660px flex flex-col gap-8px lg:grid lg:grid-cols-2 lg:gap-x-20px"
+      >
+        <cardItem
+          v-for="card in cardsDisplayed"
+          :key="card.id"
+          :card-details="card"
+        ></cardItem>
+      </div>
+      <div v-else>
+        <p>карточки отсутствуют</p>
       </div>
     </NuxtLayout>
   </div>
