@@ -23,10 +23,13 @@ console.log(totalCost);
         <div class="basis-2/3 flex h-full items-center justify-center">
           <pagination :arr-of-items="totalCards"></pagination>
         </div>
-        <div class="basis-1/3 flex justify-end">
+        <div class="basis-1/3 flex justify-end items-center gap-6px">
           <p class="text-white font-bold">
             {{ totalCost.toLocaleString() }} руб.
           </p>
+          <div>
+            <img src="@/assets/img/bin.svg" alt="" />
+          </div>
         </div>
       </div>
     </div>
