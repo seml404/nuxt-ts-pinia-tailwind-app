@@ -21,7 +21,7 @@ const switchToProfile = () => {
 
 <template>
   <div>
-    <div class="flex justify-start p-10px">
+    <div @click="switchToProfile" class="flex justify-start p-10px cursor-pointer">
       <div class="mr-10px">
         <div class="w-30px h-30px">
           <img
@@ -32,7 +32,7 @@ const switchToProfile = () => {
         </div>
       </div>
       <div class="flex flex-col gap-3px">
-        <p @click="switchToProfile" class=" ">
+        <p class=" ">
           {{ cardDetails.user?.name || "no data" }}
         </p>
         <p class="text-gray">
