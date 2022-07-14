@@ -17,10 +17,6 @@ const switchToProfile = () => {
   });
   window.open(routeData.href, "_blank");
 };
-// mock url
-
-const mockUrl =
-  "https://assets.gq.ru/photos/617973313f644e1010c81faa/16:9/w_2560%2Cc_limit/GettyImages-1229892421.jpg";
 </script>
 
 <template>
@@ -28,7 +24,11 @@ const mockUrl =
     <div class="flex justify-start p-10px">
       <div class="mr-10px">
         <div class="w-30px h-30px">
-          <img class="block w-30px h-30px rounded-50pc" :src="mockUrl" />
+          <img
+            class="block w-30px h-30px rounded-50pc"
+            :src="cardDetails.user?.profile_image?.small || ''"
+            alt="user-img"
+          />
         </div>
       </div>
       <div class="flex flex-col gap-3px">

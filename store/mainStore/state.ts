@@ -1,5 +1,5 @@
 import { cardAddedEl, cardEl } from "~~/assets/interfaces";
-import { cardList } from "~~/assets/mockData/cardList";
+// import { cardList } from "~~/assets/mockData/cardList";
 export const state = () => {
   return {
     status: {
@@ -7,8 +7,8 @@ export const state = () => {
       authorDetailsRequested: "default",
     },
     photosList: [],
-    cardsList: cardList,
-    // cardsList: [] as Array<cardEl>,
+    // cardsList: cardList,
+    cardsList: [] as Array<cardEl>,
     cardsAdded: [] as Array<cardAddedEl>,
     cardsListDisplayed: [] as Array<cardEl>,
     authorDetailsRequested: {},

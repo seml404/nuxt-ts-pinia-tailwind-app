@@ -27,7 +27,7 @@ export const actionsComposition = () => {
               id: this.photosList[i].id,
               urls: this.photosList[i].urls,
               user: this.photosList[i].user,
-              price: Math.trunc(Math.random() * 100),
+              price: Math.trunc(Math.random() * 10000),
             });
           }
         } catch (e) {
@@ -36,7 +36,7 @@ export const actionsComposition = () => {
       }
     },
     async getInitializationData() {
-      // await this.getPhotos();
+      await this.getPhotos();
       await this.createMockCards();
     },
     async addToCart(item) {
