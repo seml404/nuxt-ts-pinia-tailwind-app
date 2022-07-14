@@ -1,42 +1,28 @@
-# Nuxt 3 Minimal Starter
+# APP TO LOAD DATA AND RENDER IT IN CARDS
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+# STACK
+1. Nuxt3
+2. Vue3
+3. TypeScript
+4. Pinia
+5. TailwindCss
 
-## Setup
+# IDE
+VsCode
 
-Make sure to install the dependencies:
+# SETUP
 
-```bash
+Install the dependencies:
 # yarn
 yarn install
-
 # npm
 npm install
 
-# pnpm
-pnpm install --shamefully-hoist
-```
 
 ## Development Server
 
 Start the development server on http://localhost:3000
 
-```bash
+```
 npm run dev
 ```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
