@@ -14,9 +14,9 @@ VsCode
 
 Install the dependencies:
 # yarn
-yarn install
+```yarn install```
 # npm
-npm install
+```npm install```
 
 
 ## Development Server
