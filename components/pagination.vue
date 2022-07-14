@@ -63,7 +63,9 @@ store.setCardsListDisplayed(displayedItems.value);
 // обработчик scroll
 
 const scrollHandler = (e) => {
+  console.log(e);
   if (
+    e.deltaY > 0 &&
     Math.ceil(document.documentElement.scrollTop) +
       document.body.clientHeight >=
       document.body.scrollHeight &&
@@ -120,12 +122,15 @@ const displayedPages = computed(() => {
 </script>
 
 <template>
-  <div v-if="totalPages" class="flex cursor-pointer gap-3">
+  <div v-if="totalPages" class="flex cursor-pointer gap-3 items-center">
     <div
       v-for="(item, idx) in displayedPages"
       :key="item"
       @click="setPageNumber(item, idx + 1)"
-      :class="{ ' text-red-500': item === pageNumber }"
+      :class="[
+        ' text-white font-normal',
+        { ' text-18px font-bold': item === pageNumber },
+      ]"
     >
       {{ item }}
     </div>

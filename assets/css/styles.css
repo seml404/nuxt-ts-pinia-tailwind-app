@@ -38,12 +38,17 @@
     -ms-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    
   }
   
   input,
   button,
   textarea {
     font-family: inherit;
+    
   }
   
   input::-ms-clear {
@@ -80,3 +85,9 @@
   th {
     font-weight: normal;
   }
+
+  html, body{
+    
+  }
+
+  

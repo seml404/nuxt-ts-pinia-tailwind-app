@@ -16,9 +16,19 @@ console.log(totalCost);
 <template>
   <div class="relative flex flex-col h-screen">
     <div class="flex-grow"><slot></slot></div>
-    <div class="sticky bottom-0 opacity-1 bg-indigo-500 w-full h-60">
-      <p>{{ totalCost }}</p>
-      <pagination :arr-of-items="totalCards"></pagination>
+    <div class="sticky bottom-0 opacity-09 w-full bg-black h-60px">
+      <div
+        class="flex items-center h-60px ml-auto mr-auto w-auto max-w-440px lg:max-w-660px"
+      >
+        <div class="basis-2/3 flex h-full items-center justify-center">
+          <pagination :arr-of-items="totalCards"></pagination>
+        </div>
+        <div class="basis-1/3 flex justify-end">
+          <p class="text-white font-bold">
+            {{ totalCost.toLocaleString() }} руб.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </template>

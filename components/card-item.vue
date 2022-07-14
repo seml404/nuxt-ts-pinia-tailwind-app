@@ -17,31 +17,47 @@ const switchToProfile = () => {
   });
   window.open(routeData.href, "_blank");
 };
+// mock url
+
+const mockUrl =
+  "https://assets.gq.ru/photos/617973313f644e1010c81faa/16:9/w_2560%2Cc_limit/GettyImages-1229892421.jpg";
 </script>
 
 <template>
   <div>
     <div class="flex justify-start p-10px">
       <div class="mr-10px">
-        <p>user photo</p>
+        <div class="w-30px h-30px">
+          <img class="block w-30px h-30px rounded-50pc" :src="mockUrl" />
+        </div>
       </div>
-      <div>
-        <p @click="switchToProfile">
+      <div class="flex flex-col gap-3px">
+        <p @click="switchToProfile" class=" ">
           {{ cardDetails.user?.name || "no data" }}
         </p>
-        <p>@{{ cardDetails.user?.instagram_username || "no data" }}</p>
+        <p class="text-gray">
+          @{{ cardDetails.user?.instagram_username || "no data" }}
+        </p>
       </div>
     </div>
-    <div class="">
+    <div class="max-w-full">
       <img :src="cardDetails.urls.small" alt="img" class="w-full" />
     </div>
-    <div class="flex">
-      <div>
-        <button @click="store.addToCart(cardDetails)">+</button>
-        <button @click="store.removeFromCart(cardDetails)">-</button>
-        <p>amount in cart {{ store.defineAmountInCart(cardDetails) }}</p>
+    <div class="flex p-10px justify-between items-center">
+      <div class="flex">
+        <div class="mr-10px font-normal">
+          <button @click="store.addToCart(cardDetails)">
+            <div class="flex w-5 h-5 justify-center items-center">+</div>
+          </button>
+          <button @click="store.removeFromCart(cardDetails)">
+            <div class="flex w-5 h-5 justify-center items-center">-</div>
+          </button>
+        </div>
+        <div class="flex justify-center items-center">
+          <p>{{ store.defineAmountInCart(cardDetails) }}</p>
+        </div>
       </div>
-      {{ cardDetails.price }} руб.
+      <p>{{ cardDetails.price.toLocaleString() }} руб.</p>
     </div>
   </div>
 </template>
